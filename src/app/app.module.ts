@@ -14,7 +14,7 @@ import {
   MatCardModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatButtonModule, MatToolbarModule, MatTabsModule
+  MatButtonModule, MatToolbarModule, MatTabsModule, MatSnackBarModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { UserinformationComponent } from './components/index/userinformation/userinformation.component';
@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './components/index/toolbar/toolbar.component';
 import { RegisterComponent } from './components/index/register/register.component';
 import { ActivitiesComponent } from './components/index/activities/activities.component';
+import { LoginerrorComponent } from './components/index/loginerror/loginerror.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ActivitiesComponent } from './components/index/activities/activities.co
     ToolbarComponent,
     RegisterComponent,
     ActivitiesComponent,
+    LoginerrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { ActivitiesComponent } from './components/index/activities/activities.co
     MatButtonModule,
     MatToolbarModule,
     MatTabsModule,
+    MatSnackBarModule,
     CdkTableModule
   ],
   providers: [],

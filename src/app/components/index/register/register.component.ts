@@ -4,6 +4,9 @@ import {UserService} from '../../../user.service';
 import {Router} from '@angular/router';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {LoginResultModel} from '../../../models/LoginResultModel';
+import {MatSnackBar} from '@angular/material';
+import {LoginComponent} from '../login/login.component';
+import {LoginerrorComponent} from '../loginerror/loginerror.component';
 
 @Component({
   selector: 'app-register',
@@ -12,7 +15,7 @@ import {LoginResultModel} from '../../../models/LoginResultModel';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http: HttpClient, private api: ApiService, private user: UserService, private router: Router) { }
+  constructor(private http: HttpClient, private api: ApiService, private user: UserService, private router: Router, public snackBar: MatSnackBar) { }
 
   username: string;
   password: string;
@@ -48,15 +51,23 @@ export class RegisterComponent implements OnInit {
     const req = this.http.post('http://localhost:9998/api/login', bodyPost, httpOptions)
       .subscribe(
         res => {
-          console.log(res);
-          // TODO Routing after login
           this.usernamerest = res['username'];
           if (this.usernamerest === this.usernamelogin) {
             this.router.navigate(['user']);
             sessionStorage.setItem('username', this.usernamelogin);
           } else {
+            this.snackBar.open('Gebruikersnaam of wachtwoord is onjuist', '', {
+              duration: 3000
+            });
             alert('Gebruikersnaam of wachtwoord is onjuist');
           }
+          console.log(res);
+        },
+        error => {
+          this.snackBar.open('Gebruikersnaam of wachtwoord is onjuist', '', {
+            duration: 3000
+          });
+          console.log('Error: ', error);
         }
       );
   }

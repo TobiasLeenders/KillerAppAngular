@@ -14,6 +14,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   logout(): void {
+    sessionStorage.clear();
     this.router.navigate(["login"]);
   }
 

@@ -6,14 +6,13 @@ import {ScheduleComponent} from './components/index/schedule/schedule.component'
 import {NeedAuthGuard} from './auth.guard';
 import {RegisterComponent} from './components/index/register/register.component';
 
+
+//     canActivate: [NeedAuthGuard]
+
 const routes: Routes = [
-  {
-    path: 'user',
-    component: IndexComponent,
-    canActivate: [NeedAuthGuard]
-  },
-  { path: 'login', component: LoginComponent },
-  { path: '', component: RegisterComponent }
+  {path: 'user', component: IndexComponent},
+  { path: 'login', component: RegisterComponent },
+  { path: '', component: IndexComponent }
 ];
 
 @NgModule({
