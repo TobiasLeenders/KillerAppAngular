@@ -1,0 +1,79 @@
+<!--<mat-table #table [dataSource]="dataSource" matSort>
+  &lt;!&ndash; Sport Column &ndash;&gt;
+  <ng-container cdkColumnDef="sport">
+    <th cdk-header-cell *cdkHeaderCellDef> Sport </th>
+    <td cdk-cell *cdkCellDef="let exercise"> {{exercise.sport}} </td>
+  </ng-container>
+
+  &lt;!&ndash; Start Column &ndash;&gt;
+  <ng-container cdkColumnDef="start">
+    <th cdk-header-cell *cdkHeaderCellDef> Start </th>
+    <td cdk-cell *cdkCellDef="let exercise"> {{exercise.start}} </td>
+  </ng-container>
+
+  &lt;!&ndash; Duration Column &ndash;&gt;
+  <ng-container cdkColumnDef="duration">
+    <th cdk-header-cell *cdkHeaderCellDef> Duration </th>
+    <td cdk-cell *cdkCellDef="let exercise"> {{exercise.duration}} </td>
+  </ng-container>
+
+  <ng-container>
+    <tr>
+      <td>
+        <input matInput type="text" id="newAttributeCode" [(ngModel)]="newEntry.sport" name="newAttributeCode" />
+      </td>
+      <td>
+        <input matInput type="text" id="newAttributeName" [(ngModel)]="newEntry.start" name="newAttributeName" />
+      </td>
+      <td>
+        <input matInput type="text" id="newAttributePrice" [(ngModel)]="newEntry.duration" name="newAttributePrice" />
+      </td>
+      <td>
+        <button class="mat-button" type="button" (click)="addFieldValue()">Add</button>
+      </td>
+    </tr>
+  </ng-container>
+
+  <tr cdk-header-row *cdkHeaderRowDef="displayedColumns"></tr>
+  <tr cdk-row *cdkRowDef="let row; columns: displayedColumns;"></tr>
+</mat-table>-->
+
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Sport</th>
+    <th>Start</th>
+    <th>Duration</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let field of tableArray; let i = index">
+    <td>
+      <input [(ngModel)]="field.sport" class="form-control" type="text" name="{{field.sport}}" />
+    </td>
+    <td>
+      <input [(ngModel)]="field.start" class="form-control" type="text" name="{{field.start}}" />
+    </td>
+    <td>
+      <input [(ngModel)]="field.duration" class="form-control" type="text" name="{{field.duration}}" />
+    </td>
+    <td>
+      <button class="btn btn-default"  type="button" (click)="deleteFieldValue(i)">Delete</button>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <input class="form-control" type="text" id="newAttributeCode" [(ngModel)]="newEntry.sport" name="newAttributeCode" />
+    </td>
+    <td>
+      <input class="form-control" type="text" id="newAttributeName" [(ngModel)]="newEntry.start" name="newAttributeName" />
+    </td>
+    <td>
+      <input class="form-control" type="text" id="newAttributePrice" [(ngModel)]="newEntry.duration" name="newAttributePrice" />
+    </td>
+    <td>
+      <button class="btn btn-default" type="button" (click)="addFieldValue()">Add</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
