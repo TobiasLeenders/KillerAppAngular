@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh 'npm prune'
         sh 'npm install'
-        sh 'npm run production'
+        sh 'npm run'
       }
     }
     // stage('Test') {
@@ -36,8 +36,8 @@ pipeline {
       }
       steps {
         sh 'docker build -t killerapp-frontend .'
-        sh 'docker rm -f killerapp-frontend-prod || true'
-        sh 'docker run -d -p 4201:4201 --restart always --name killerapp-frontend-prod killerapp-frontend'
+        sh 'docker rm -f killerapp-frontend || true'
+        sh 'docker run -d -p 4201:4201 --restart always --name killerapp-frontend killerapp-frontend'
         sh 'docker image prune -f'
       }
     }
