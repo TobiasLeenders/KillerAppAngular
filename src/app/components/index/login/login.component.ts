@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       'password': '2'
     }
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
-    const req = this.http.post('http://localhost:9998/api/login', bodyPost, httpOptions)
+    const req = this.http.post('http://' + location.hostname + ':9998/api/login', bodyPost, httpOptions)
       .subscribe(
         res => {
           console.log(res);

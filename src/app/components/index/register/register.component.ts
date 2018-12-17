@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
       .set('password', this.password)
       .set('email', this.email);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};
-    const req = this.http.post('http://localhost:9998/api/register', body, httpOptions)
+    const req = this.http.post('http://' + location.hostname + ':9998/api/register', body, httpOptions)
       .subscribe(
         res => {
           console.log(res);
@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
       .set('username', this.usernamelogin)
       .set('password', this.passwordlogin);
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};
-    const req = this.http.post('http://localhost:9998/api/login', bodyPost, httpOptions)
+    const req = this.http.post('http://' + location.hostname + ':9998/api/login', bodyPost, httpOptions)
       .subscribe(
         res => {
           this.usernamerest = res['username'];

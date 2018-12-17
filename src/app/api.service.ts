@@ -14,7 +14,7 @@ export class ApiService {
   }
 
   login(username: string, password: string): Observable<LoginResultModel>{
-    return this.http.post<LoginResultModel>('http://localhost:9998/api/login', {
+    return this.http.post<LoginResultModel>('http://' + location.hostname + ':9998/api/login', {
       username: username,
       password: password
     });
