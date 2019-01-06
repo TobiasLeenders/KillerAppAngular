@@ -15,7 +15,8 @@ import {LoginerrorComponent} from '../loginerror/loginerror.component';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private http: HttpClient, private api: ApiService, private user: UserService, private router: Router, public snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private api: ApiService, private user: UserService,
+              private router: Router, public snackBar: MatSnackBar) { }
 
   username: string;
   password: string;
@@ -51,10 +52,12 @@ export class RegisterComponent implements OnInit {
     const req = this.http.post('http://' + location.hostname + ':9998/api/login', bodyPost, httpOptions)
       .subscribe(
         res => {
+          console.log(res);
           this.usernamerest = res['username'];
           if (this.usernamerest === this.usernamelogin) {
             this.router.navigate(['user']);
             sessionStorage.setItem('username', this.usernamelogin);
+            sessionStorage.setItem('userid', res['id']);
           } else {
             this.snackBar.open('Gebruikersnaam of wachtwoord is onjuist', '', {
               duration: 3000

@@ -1,0 +1,130 @@
+<div class="newscheduleinput">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          New schedule
+        </mat-panel-title>
+        <mat-panel-description>
+          Create a new schedule here
+        </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-form-field>
+          <input matInput placeholder="Name" [(ngModel)]="schedulename" name="nameschedule">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="startdate" placeholder="Choose a date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="number" [(ngModel)]="scheduleduration" placeholder="Duration" min="1">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-select placeholder="Frequency" [(ngModel)]="frequencyschedule">
+            <mat-option *ngFor="let frequency of schedulefrequency" [value]="frequency.value">
+              {{frequency.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-radio-group>
+          <mat-radio-button value={{userid}}>User</mat-radio-button>
+          <mat-radio-button value="2">Group</mat-radio-button>
+        </mat-radio-group><br>
+        <mat-form-field>
+          <input matInput placeholder="Activity" [(ngModel)]="activityname" name="nameactivity">
+        </mat-form-field>
+        <button mat-flat-button (click)="addFieldValue()" color="primary">Add activity</button>
+        <a class ='btn' *ngFor="let activity of activitylist"><i (click)="addFieldValue()" class="listactivities"></i><br>{{activity}}</a><br>
+        <!--<div *ngFor="let activity of activitylist">{{activity}}</div>-->
+        <button mat-flat-button (click)="addSchedule()" color="primary">Add</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+  <!--<mat-form-field class="newschedulenameinput">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Duration" min="1">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Frequency">
+      <mat-option *ngFor="let frequency of schedulefrequency" [value]="frequency.value">
+        {{frequency.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-radio-group>
+      <mat-radio-button value="1">User</mat-radio-button>
+      <mat-radio-button value="2">Group</mat-radio-button>
+    </mat-radio-group>
+  </mat-form-field>
+  <mat-form-field>
+    <div class="container">
+      <br>
+      <div class="row">
+        <table class="table table-striped table-bordered col-lg-4">
+          <caption><i>Add/remove textbox and chip dynamically in Angular 6</i></caption>
+          <thead>
+          <tr>
+            <th>Activities
+              <a (click)="onEditCloseItems()" class="text-info float-right">
+                <i class="mdi mdi-{{isEditItems ? 'close' : 'pencil'}} mdi-18px"></i>
+              </a>
+            </th>
+          </tr>
+          </thead>
+
+          <tbody *ngIf="!isEditItems">
+          <tr *ngIf="firstField">
+            <td>
+              <i (click)="firstField = false" class="mdi mdi-close mdi-18px"></i> {{firstFieldName}}
+            </td>
+          </tr>
+          <tr *ngFor="let field of fieldArray; let i = index">
+            <td *ngIf="field?.name">
+              <i (click)="deleteFieldValue(i)" class="mdi mdi-close mdi-18px"></i> {{field.name}}</td>
+          </tr>
+          </tbody>
+
+          <tbody *ngIf="isEditItems">
+          <tr>
+            <td *ngIf="firstField">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div (click)="firstField = false" class="input-group-text"><i class="mdi mdi-close mdi-18px"></i></div>
+                </div>
+                <input [(ngModel)]="firstFieldName" class="form-control py-2 " type="text" name="firstFieldName" placeholder="Name">
+              </div>
+            </td>
+          </tr>
+
+          <tr *ngFor="let field of fieldArray; let i = index">
+            <td>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div (click)="deleteFieldValue(i)" class="input-group-text"><i class="mdi mdi-close mdi-18px"></i></div>
+                </div>
+                <input [(ngModel)]="field.name" class="form-control" type="text" name="{{field.name}}" placeholder="Item Name">
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              <button *ngIf="fieldArray.length <= 2" class="btn btn-success btn-sm" type="button" (click)="addFieldValue()" style="margin-right:10px">Add More Item</button>
+              <button (click)="onEditCloseItems()" class="btn btn-primary btn-sm" type="button">Save Items</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-form-field>
+</div>-->

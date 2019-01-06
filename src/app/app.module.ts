@@ -14,7 +14,14 @@ import {
   MatCardModule,
   MatInputModule,
   MatProgressSpinnerModule,
-  MatButtonModule, MatToolbarModule, MatTabsModule, MatSnackBarModule
+  MatButtonModule,
+  MatToolbarModule,
+  MatTabsModule,
+  MatSnackBarModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatSelectModule,
+  MatRadioGroup, MatRadioModule, MatFormFieldModule, MatExpansionModule
 } from '@angular/material';
 import { CdkTableModule } from '@angular/cdk/table';
 import { UserinformationComponent } from './components/index/userinformation/userinformation.component';
@@ -24,6 +31,8 @@ import { ToolbarComponent } from './components/index/toolbar/toolbar.component';
 import { RegisterComponent } from './components/index/register/register.component';
 import { ActivitiesComponent } from './components/index/activities/activities.component';
 import { LoginerrorComponent } from './components/index/loginerror/loginerror.component';
+import { NewgroupComponent } from './components/index/newgroup/newgroup.component';
+import { NewscheduleComponent } from './components/index/newschedule/newschedule.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +45,8 @@ import { LoginerrorComponent } from './components/index/loginerror/loginerror.co
     RegisterComponent,
     ActivitiesComponent,
     LoginerrorComponent,
+    NewgroupComponent,
+    NewscheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +64,12 @@ import { LoginerrorComponent } from './components/index/loginerror/loginerror.co
     MatToolbarModule,
     MatTabsModule,
     MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatExpansionModule,
     CdkTableModule
   ],
   providers: [],
