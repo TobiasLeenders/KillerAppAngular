@@ -1,0 +1,16 @@
+#scheduletable {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#scheduletable td, #scheduletable th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#scheduletable th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}

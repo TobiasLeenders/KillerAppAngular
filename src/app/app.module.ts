@@ -34,6 +34,7 @@ import { LoginerrorComponent } from './components/index/loginerror/loginerror.co
 import { NewgroupComponent } from './components/index/newgroup/newgroup.component';
 import { NewscheduleComponent } from './components/index/newschedule/newschedule.component';
 import { RegisteredComponent } from './components/index/registered/registered.component';
+import { map } from 'rxjs/operators';
 import {NeedAuthGuard} from './auth.guard';
 
 @NgModule({

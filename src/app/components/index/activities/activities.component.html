@@ -3,8 +3,8 @@
     <th>Id</th>
     <th>Name</th>
   </tr>
-  <tr *ngFor="let scheduleid of schedulelist; let i = index">
-    <td (click)="openDetails">{{scheduleid[i]}}</td>
+  <tr *ngFor="let schedulename of schedulenamelist; let i = index">
+    <td>{{schedulelist[i]}}</td>
     <td>{{schedulenamelist[i]}}</td>
   </tr>
 </table>
