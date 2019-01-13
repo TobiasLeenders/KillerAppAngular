@@ -33,6 +33,8 @@ import { ActivitiesComponent } from './components/index/activities/activities.co
 import { LoginerrorComponent } from './components/index/loginerror/loginerror.component';
 import { NewgroupComponent } from './components/index/newgroup/newgroup.component';
 import { NewscheduleComponent } from './components/index/newschedule/newschedule.component';
+import { RegisteredComponent } from './components/index/registered/registered.component';
+import {NeedAuthGuard} from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { NewscheduleComponent } from './components/index/newschedule/newschedule
     LoginerrorComponent,
     NewgroupComponent,
     NewscheduleComponent,
+    RegisteredComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,7 @@ import { NewscheduleComponent } from './components/index/newschedule/newschedule
     MatExpansionModule,
     CdkTableModule
   ],
-  providers: [],
+  providers: [NeedAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

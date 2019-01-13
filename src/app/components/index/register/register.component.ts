@@ -40,6 +40,13 @@ export class RegisterComponent implements OnInit {
       .subscribe(
         res => {
           console.log(res);
+          this.router.navigate(['registered']);
+        },
+        error => {
+          this.snackBar.open('Vul een geldige gebruikersnaam en wachtwoord in', '', {
+            duration: 3000
+          });
+          console.log('Error: ', error);
         }
       );
   }
@@ -58,13 +65,13 @@ export class RegisterComponent implements OnInit {
             this.router.navigate(['user']);
             sessionStorage.setItem('username', this.usernamelogin);
             sessionStorage.setItem('userid', res['id']);
+            sessionStorage.setItem('token', res['token']);
           } else {
             this.snackBar.open('Gebruikersnaam of wachtwoord is onjuist', '', {
               duration: 3000
             });
             alert('Gebruikersnaam of wachtwoord is onjuist');
           }
-          console.log(res);
         },
         error => {
           this.snackBar.open('Gebruikersnaam of wachtwoord is onjuist', '', {
