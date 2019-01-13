@@ -56,7 +56,7 @@ export class NewscheduleComponent implements OnInit {
       .set('frequency', this.frequencyschedule)
       .set('startTime', this.startdate)
       .set('group_id', '1')
-      .set('user_id', '1')
+      .set('user_id', sessionStorage.getItem('userid'))
       .set('activities', this.activitylist.join(', '))
       .set('categories', this.activitylist.join(', '));
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};

@@ -17,11 +17,11 @@ export class NeedAuthGuard implements CanActivate {
   ) { }
 
   canActivate() {
-    const token = localStorage.getItem('token');
-    const userid = localStorage.getItem('userid');
+    const token = sessionStorage.getItem('token');
+    const userid = sessionStorage.getItem('userid');
 
     if (token != null || userid != null) {
-      const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded', 'responseType': 'text'})};
+      const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};
       const req = this.http.get('http://' + location.hostname + ':9998/api/checkToken/' + sessionStorage.getItem('userid') + '/'
         + sessionStorage.getItem('token'), httpOptions)
         .subscribe(
@@ -34,9 +34,9 @@ export class NeedAuthGuard implements CanActivate {
           }
         );
     } else {
-      localStorage.clear();
+      sessionStorage.clear();
       alert('Uw sessie is verlopen.');
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
       return false;
     }
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Checktoken} from '../../../checktoken';
 import {ScheduleActivities} from './ScheduleActivities';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Router} from '@angular/router';
@@ -24,9 +23,8 @@ export class ActivitiesComponent implements OnInit {
   columnsToDisplay = ['name', 'weight', 'symbol', 'position'];
   expandedElement: ScheduleActivities | null;*/
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient) {
     this.getSchedules();
-    Checktoken.checkToken(this.http, this.router);
   }
 
   ngOnInit() {
@@ -35,7 +33,7 @@ export class ActivitiesComponent implements OnInit {
 
   getSchedules() {
     const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded'})};
-    const req = this.http.get('http://' + location.hostname + ':9998/api/getSchedules/1', httpOptions)
+    const req = this.http.get('http://' + location.hostname + ':9998/api/getSchedules/' + sessionStorage.getItem('userid'), httpOptions)
       .subscribe(
         res => {
           console.log(res);

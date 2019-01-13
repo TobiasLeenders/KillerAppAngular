@@ -18,4 +18,8 @@ export class ToolbarComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  navigateGroup() {
+    this.router.navigate(['group']);
+  }
+
 }
